@@ -1,7 +1,10 @@
 var Spimg = require('../lib/spimg');
 
-console.log(Spimg);
+var url       = process.argv[2] || '',
+    max_depth = process.argv[3] || 1000;
 
+console.log('URL: ' + url);
+console.log('Max Depth: ' + max_depth);
 
 //var url = 'http://www.amazon.com/';
 //var url = 'http://www.independent.co.uk/';
@@ -16,7 +19,7 @@ console.log(Spimg);
 //var url = 'http://imgur.com/';
 
 var spimg = new Spimg(url, {
-    max_depth: 1000
+    max_depth: max_depth
 });
 
 
