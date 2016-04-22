@@ -46,41 +46,32 @@
 			})
 		</script>
 	</head>
+
 	<body>
 		<div id="wrapper">
 			<div class="bloco" id="img1">
-				<img src="img/layout/bt_rand.gif">
+				<img src="img/bt_rand.gif">
 			</div>
 			
 			<div class="bloco" id="img2">
-				<img src="img/layout/bt_rand.gif">
+				<img src="img/bt_rand.gif">
 			</div>
 			
 			<div class="bloco" id="img3">
-				<img src="img/layout/bt_rand.gif">
+				<img src="img/bt_rand.gif">
 			</div>
 			
 			<div class="bloco" id="img4">
-				<img src="img/layout/bt_rand.gif">
+				<img src="img/bt_rand.gif">
 			</div>
 			
 			<div class="bloco" id="img5">
-				<img src="img/layout/bt_rand.gif">
+				<img src="img/bt_rand.gif">
 			</div>
 		</div>
-		<div id="wrapperBotao">
-			<input id="randomizer" type="image" src="img/layout/bt_rand.gif" value="..." onclick="Randomizer.run()" />
-		</div>
-		
-		<script type="text/javascript">
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-		<script type="text/javascript">
-		try {
-		var pageTracker = _gat._getTracker("UA-2837960-9");
-		pageTracker._trackPageview();
-		} catch(err) {}</script>
 
+		<div id="wrapperBotao">
+			<input id="randomizer" type="image" src="img/bt_rand.gif" value="..." onclick="Randomizer.run()" />
+		</div>
 	</body>
 </html>
