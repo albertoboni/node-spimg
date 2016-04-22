@@ -1,53 +1,66 @@
-function escreveImg(div, altura){
-	
-	$(div).animate({'height': altura}, 'fast');
+var Randomizer = {
+	files     : [],
+	img_width : 568,
 
-	$(div).children('img').fadeOut(500, function(){
-		$(div).load('imageLoad.php' , {'h': altura}, function(){
-			fadeIn(div);
+	writeImg : function(div, new_height)
+	{
+		$(div).animate({
+			'height': new_height
+		}, 'fast');
+
+		$(div).children('img').fadeOut(500, function(){
+            var files     = Randomizer.files;
+			var file_key  = Math.floor(Math.random() * files.length);
+            var file_path = files[file_key];
+			var img_src   =
+                'imagem.php' +
+                '?w=' + Randomizer.img_width +
+                '&h=' + new_height +
+                '&src=' + file_path;
+
+            $(this)
+                .attr('src', img_src)
+                .fadeIn(500);
 		});
-	});
-}
+	},
 
-function fadeIn(elem){
+	run: function()
+	{
+		var max = 500;
+		var min = 20;
+		var multiplicador = 150;
 
-	$(elem).children('img').fadeIn(500);
-}
-
-
-function randomizer(){
-	var maximo = 500;
-	var minimo = 20;
-	var multiplicador = 150;
-	
-	var i = 0;
-	while(i == 0){
-		var numero1 = Math.floor(Math.random()*multiplicador);
-		var numero2 = Math.floor(Math.random()*multiplicador);
-		var numero3 = Math.floor(Math.random()*multiplicador);
-		var numero4 = Math.floor(Math.random()*multiplicador);
-		var numero5 = 500 - (numero1+numero2+numero3+numero4);
-		if((numero1 < minimo) || (numero2 < minimo) || (numero3 < minimo) || (numero4 < minimo) || (numero5 < minimo) || (numero5 > multiplicador)) {
-			i = 0;
-		} else {
-			i = 1;
-			//alert(numero1+numero2+numero3+numero4);
+		var i = 0;
+		while(i == 0){
+			var h1 = Math.floor(Math.random()*multiplicador);
+			var h2 = Math.floor(Math.random()*multiplicador);
+			var h3 = Math.floor(Math.random()*multiplicador);
+			var h4 = Math.floor(Math.random()*multiplicador);
+			var h5 = max - (h1 + h2 + h3 + h4);
+			if((h1 < min) || (h2 < min) || (h3 < min) || (h4 < min) || (h5 < min) || (h5 > multiplicador)) {
+				i = 0;
+			} else {
+				i = 1;
+			}
 		}
-	}
-	
-	
-	//alert(numero1 + numero2 + numero3 + numero4 + numero5);
-	
-	var intervalo1 = window.setTimeout(function(){
-		escreveImg("#img1", numero1)}, Math.floor(Math.random()*1000));
-	var intervalo2 = window.setTimeout(function(){
-		escreveImg("#img2", numero2)}, Math.floor(Math.random()*1000));
-	var intervalo3 = window.setTimeout(function(){
-		escreveImg("#img3", numero3)}, Math.floor(Math.random()*1000));
-	var intervalo4 = window.setTimeout(function(){
-		escreveImg("#img4", numero4)}, Math.floor(Math.random()*1000));
-	var intervalo5 = window.setTimeout(function(){
-		escreveImg("#img5", numero5)}, Math.floor(Math.random()*1000));
-}
 
+		window.setTimeout(function(){
+			Randomizer.writeImg("#img1", h1)}, Math.floor(Math.random()*1000));
+
+        window.setTimeout(function(){
+			Randomizer.writeImg("#img2", h2)}, Math.floor(Math.random()*1000));
+
+        window.setTimeout(function(){
+			Randomizer.writeImg("#img3", h3)}, Math.floor(Math.random()*1000));
+
+        window.setTimeout(function(){
+			Randomizer.writeImg("#img4", h4)}, Math.floor(Math.random()*1000));
+
+        window.setTimeout(function(){
+			Randomizer.writeImg("#img5", h5)}, Math.floor(Math.random()*1000));
+	}
+
+
+
+};
 
