@@ -1,0 +1,57 @@
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="4">
+
+    <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Ajustar valores</h1>
+    </md-toolbar>
+
+    <md-content layout-margin>
+        <div ng-repeat="(key, value) in template">
+            <md-slider-container>
+                <span ng-bind="template[key].nome" style="font-size:12px"></span>
+                <md-slider min="{{template[key].min}}" max="{{template[key].max}}" ng-model="template[key].valor" class="md-warn">
+                </md-slider>
+                <md-input-container>
+                    <input type="number" ng-model="template[key].valor">
+                </md-input-container>
+            </md-slider-container>
+        </div>
+
+        <md-button ng-click="toggleLeft()" class="md-accent">
+            Fechar
+        </md-button>
+        <md-button ng-click="imagens.atualizar(template)" class="md-raised">Atualizar</md-button>
+    </md-content>
+
+</md-sidenav>
+
+
+<div style="padding-top:30px">
+    <div class="wrapper" ng-style="{width: imagens.template.width.valor + 'px'}">
+        <div class="bloco" ng-repeat="step in imagens.steps track by $index">
+            <img src="{{ step.getPath() }}">
+        </div>
+    </div>
+</div>
+
+<div class="wrapperBotao">
+
+    <md-button ng-click="imagens.atualizar(template)" class="md-raised">Atualizar</md-button>
+    <md-button ng-click="toggleLeft()" class="md-raised">
+        Ajustar Valores
+    </md-button>
+</div>
+
+<style>
+    html, body {margin:0; padding:0}
+    .wrapper{
+        margin:0 auto 0 auto;
+        border:1px solid #777;
+        overflow:hidden
+    }
+    .wrapperBotao {width:569px; margin:20px auto 0 auto}
+    .bloco {
+        /*width:568px; height:100px; */
+        border:0px solid #777; border-bottom:none; border-right:none}
+    .bloco img {display:block;}
+    #randomizer {float:right; margin-top:2px}
+</style>

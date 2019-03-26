@@ -1,0 +1,17 @@
+{
+  "name": "randomizador",
+  "homepage": "https://github.com/albertoboni/node-spimg",
+  "authors": [
+    "Alberto Boni <betobonix@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
